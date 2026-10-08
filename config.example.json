@@ -1,0 +1,30 @@
+{
+  "listen": ":8080",
+  "backend": "http://192.168.26.129:80",
+  "rate": 10,
+  "burst": 20,
+  "global_rate": 150,
+  "global_burst": 300,
+  "strikes": 10,
+  "ban_seconds": 60,
+  "max_ban_seconds": 86400,
+  "max_body_bytes": 1048576,
+  "log_path": "shield.log",
+  "routes": [
+    {
+      "prefix": "/dvwa/login.php",
+      "rate": 1,
+      "burst": 3
+    },
+    {
+      "prefix": "/dvwa/vulnerabilities/sqli",
+      "rate": 2,
+      "burst": 5
+    },
+    {
+      "prefix": "/dvwa/vulnerabilities/brute",
+      "rate": 1,
+      "burst": 3
+    }
+  ]
+}
